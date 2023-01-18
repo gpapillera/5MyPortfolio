@@ -16,8 +16,7 @@
   --navbar-text: #ccd6f6;
   --contact-section: #303841;
   --white: white;
-  --font-sans: "Calibre", "Inter", "San Francisco", "SF Pro Display",
-    -apple-system, system-ui, sans-serif;
+  --font-sans: "Calibre", "Inter", "San Francisco", "SF Pro Display", -apple-system, system-ui, sans-serif;
   --font-mono: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", monospace;
   --font-space: "Space Grotesk", sans-serif;
 }
@@ -58,7 +57,7 @@ body {
 }
 
 #navbar ul li a {
-  color: var(--navbar-text);
+  color: var(--white);
   font-size: 16px;
   text-decoration: none;
   font-weight: 400;
@@ -66,13 +65,13 @@ body {
 }
 
 #navbar ul li a:hover {
-  color: var(--white);
+  color: var(--navbar-text);
 }
 
 /* WELCOME SECTION */
 #welcome-section {
   padding-top: 60px;
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
   background-image: linear-gradient(
     62deg,
@@ -87,7 +86,7 @@ body {
 
 #welcome-section h1 {
   text-align: center;
-  font-size: 4.5rem;
+  font-size: clamp(3rem, 5vw ,6rem);
   font-family: var(--font-sans);
   color: var(--white);
   transition: 0.3s;
@@ -95,7 +94,7 @@ body {
 
 #welcome-section p {
   text-align: center;
-  font-size: 1.6rem;
+  font-size: clamp(1.5rem, 1.5vw ,2rem);
   color: var(--navbar-text);
   font-family: var(--font-sans);
   font-weight: 100;
@@ -104,17 +103,21 @@ body {
 /* PROJECT SECTION */
 #project-section {
   text-align: center;
-  padding: 7rem 2rem;
-  background: rgb(130, 139, 143);
+  padding: min(15vh, 7rem);
+  background: rgb(237, 242, 247);
   border-radius: 5px;
+  min-height: 100vh;
 }
 
 .projects-section-header {
-  max-width: 640px;
+  /* max-width: 640px; */
   margin: 0 auto 6rem auto;
   /* border-bottom: 0.2rem solid var(--navbar-text); */
-  font-size: 50px;
-  color: var(--white);
+  font-size: clamp(3rem, 5vw ,6rem);;
+  color: var(--navbar-color);
+  text-shadow: 6px 6px 6px #cacaca,
+  -6px -6px 6px #f6f6f6;
+  align-items: center;
 }
 
 #project-link {
@@ -125,16 +128,14 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(390px, 1fr));
   grid-auto-rows: 1fr; /*  GRID EQUAL HEIGHT */
-  grid-gap: 2.5rem;
-  width: 100%;
-  max-width: 1280px;
+  grid-gap: 3em;
+  min-width: 30em;
   margin: 0 auto;
   margin-bottom: 6rem;
+  justify-content: center;
 }
 
 .project {
-  box-shadow: 1px 1px 1px rgb(0 0 0 / 50%);
-  border-radius: 2px;
   text-decoration: none;
   color: var(--navbar-text);
   position: relative;
@@ -143,13 +144,10 @@ body {
 .project-image {
   height: 100%;
   width: 100%;
-  object-fit: fill;
-}
-
-img {
   display: block;
-  width: 100%;
-  border-radius: 5px;
+  border-radius: 42px;
+box-shadow:  10px 10px 20px #cccccc,
+             -10px -10px 20px #f4f4f4;
 }
 
 .project-title {
@@ -178,7 +176,7 @@ img {
   transform: translate(-50%, -50%);
   width: 100%;
   opacity: 0.4;
-  border-radius: 5px;
+  border-radius: 42px;
   transition: 0.5s;
 }
 
@@ -216,7 +214,7 @@ img {
 /* CONTACT SECTION */
 #contact-section {
   width: 100%;
-  height: 85vh;
+  min-height: 85vh;
   background-color: var(--contact-section);
   display: flex;
   flex-direction: column;
@@ -230,14 +228,14 @@ img {
 
 #contact-section h1 {
   font-family: var(--font-sans);
-  font-size: 4rem;
+  font-size: clamp(3rem, 5vw ,6rem);
   color: var(--white);
   transition: 0.4s;
 }
 
 #contact-section p {
   font-family: var(--font-sans);
-  font-size: 1.5rem;
+  font-size: clamp(1.5rem, 1.5vw ,2rem);
 }
 
 #contact-section i {
@@ -289,7 +287,7 @@ img {
 
 footer {
   width: 100%;
-  height: 15vh;
+  min-height: 15vh;
 }
 
 .footer {
@@ -297,7 +295,7 @@ footer {
   padding: 40px;
 }
 
-@media only screen and (max-width: 1200px) {
+/* @media only screen and (max-width: 1200px) {
   html {
     font-size: 95%;
     transition: 0.5s;
@@ -335,4 +333,4 @@ footer {
   #contact-section h1 {
     font-size: 3.6rem;
   }
-}
+} */
